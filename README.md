@@ -15,3 +15,9 @@
 - Run `npm i`
 - Run `node_modules/.bin/gulp`
 - Run `php -S localhost:8000` or serve a different way
+
+## Example 4: A full example
+- Run `cd recommended`
+- Run `npm i`
+- Run `node_modules/.bin/gulp production` (or `node_modules/.bin/gulp` to watch file changes)
+- Run `php -S localhost:8000` or serve a different way
