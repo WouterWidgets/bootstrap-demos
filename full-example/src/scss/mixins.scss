@@ -1,0 +1,47 @@
+// Responsive font size
+// .f-{breakpoint}-{size} (e.g. .f-1 .f-lg-2)
+@each $fontSize, $size in $fontSizes {
+  .f-#{$fontSize} { font-size: $size !important; }
+}
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $fontSize, $size in $fontSizes {
+      .f#{$infix}-#{$fontSize} { font-size: $size !important; }
+    }
+  }
+}
+
+// Responsive z-index
+// .z-{breakpoint}-{zIndex} (e.g. .z-1 .z-lg-2)
+@each $zIndex in $zIndexes {
+  .z-#{$zIndex} {
+    position: relative;
+    z-index: $zIndex !important;
+  }
+}
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $zIndex in $zIndexes {
+      .z#{$infix}-#{$zIndex} {
+        position: relative;
+        z-index: $zIndex !important;
+      }
+    }
+  }
+}
+
+// Responsive width/height
+// .w-{breakpoint}-{size} (e.g. .w-100 .w-lg-50)
+// .h-{breakpoint}-{size} (e.g. .h-100 .h-lg-50)
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $prop, $abbrev in (width: w, height: h) {
+      @each $size, $length in $sizes {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+      }
+    }
+  }
+}

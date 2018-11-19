@@ -1,0 +1,44 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Don't do this:
+
+.btn-blue {
+  background-color: deepskyblue;
+  color: white;
+  border-radius: 0;
+
+  &:active {
+    background-color: darken(deepskyblue, 10%);
+  }
+}
+
+.btn-orange {
+  background-color: orange;
+  color: white;
+  border-radius: 0;
+
+  &:active {
+    background-color: darken(orange, 10%);
+  }
+}
+
+#some-container {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: deepskyblue;
+  color: white;
+}
+
+.font-large {
+  font-size: 2rem;
+}
+
+.font-large-responsive {
+  font-size: 2rem;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+  }
+}
+
+// ...view 'full-example/src/scss/main.css' for a better way
